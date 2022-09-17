@@ -27,7 +27,7 @@ cd TakeHomeTechnical
 
 Install the appropriate libraries/dependencies
 ```js
-npm install express moment-timezone jest --save
+npm install express moment-timezone --save
 ```
 
 Run the API locally:
