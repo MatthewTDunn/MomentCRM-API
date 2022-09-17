@@ -10,21 +10,37 @@ Additionally, the ability to convert the return response to one of _seconds, min
 
 # Installation
 
-This API can be accessed
+This API can be accessed directly via the AWS host located - 
 
 _alternatively it can be cloned and utilised locally by performing the following_:
 
 Clone the repository to your local machine:
-> git clone https://github.com/Pyr1te/TakeHomeTechnical.git
+```js
+git clone https://github.com/Pyr1te/TakeHomeTechnical.git
+```
+> 
 
 Navigate to the directory
-> cd TakeHomeTechnical
+```js
+cd TakeHomeTechnical
+```
 
 Install the appropriate libraries/dependencies
-> npm install express moment moment-timezone jest --save
+```js
+npm install express moment moment-timezone jest --save
+```
 
 Run the API locally:
-> node main.js
+```js
+node main.js
+```
+
+With the local server listening on port 3000, you can utilise the browser to access the API by navigating to:
+```js
+http://localhost:3000/api/days/{firstDateTime}/{secondDateTime}/?format={timeFormat}
+```
+
+Noting that parameters outlined in {} should be replaced with your input parameters - Populating API path & accepted parameters outlined below in usage section
 
 
 # Visual
