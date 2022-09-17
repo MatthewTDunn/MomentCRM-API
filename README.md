@@ -15,28 +15,28 @@ This API can be accessed directly via the AWS host located -
 _alternatively it can be cloned and utilised locally by performing the following_:
 
 Clone the repository to your local machine:
-```js
+```
 git clone https://github.com/Pyr1te/TakeHomeTechnical.git
 ```
 > 
 
 Navigate to the newly cloned directory
-```js
+```
 cd TakeHomeTechnical
 ```
 
 Install the appropriate libraries/dependencies
-```js
+```
 npm install express moment-timezone --save
 ```
 
 Run the API locally:
-```js
+```
 node main.js
 ```
 
 With the local server listening on port 3000, you can utilise the browser to access the API by navigating to:
-```js
+```
 http://localhost:3000/days/{firstDateTime}/{secondDateTime}/?format={timeFormat}
 ```
 
@@ -64,8 +64,8 @@ This API accepts three route parameters in the following order:
 
 As an example, the following datetimes can be used to calculate the number of days from when I received the technical take home to when I returned it - <strong>returning 10</strong>.
 
-```js
-http://localhost:3000/days/2022-09-08T00:00:00/2022-09-18T00:00:00/
+```
+/days/2022-09-08T00:00:00/2022-09-18T00:00:00/
 ```
 
 <h3>Query Parameters:</h3>
@@ -84,10 +84,15 @@ There are three query parameters available to the user in this API (case sensiti
   <li>tz2</li>
 </ul>
 
-A list of available timezones can be found by hitting the API endpoint <strong>/timezones</strong> alternatively, <a href="https://gist.github.com/diogocapela/12c6617fc87607d11fd62d2a4f42b02a">this GitHub repo</a> contains a list of many available options. Utilising this information we can extract the amount of <strong>minutes</strong> between <strong>two date time parameters</strong>, taking into account inidivdual <strong>timezones</strong>.
+A list of available timezones can be found by hitting the API endpoint <strong>/timezones</strong> alternatively, <a href="https://gist.github.com/diogocapela/12c6617fc87607d11fd62d2a4f42b02a">this GitHub repo</a> contains a list of many available options. Utilising this information we can extract the amount of <strong>minutes</strong> between <strong>two date time parameters</strong>, taking into account inidivdual <strong>timezones</strong> as outlined below.
 
-```js
-http://localhost:3000/days/2022-09-08T00:00:00/2022-09-18T00:00:00/?format=minutes&tz1=America/Boise&tz2=Africa/Conakry
+```
+/days/2022-09-08T00:00:00/2022-09-18T00:00:00/?format=minutes&tz1=America/Boise&tz2=Africa/Conakry
 ```
 
 # Testing
+
+
+# Further Improvements Possibilities
+
+Although effort has been made to ensure the code is commented & as readable as possible, I am relatively inexperienced in having professionally established programmers reviewing my code and understand there is likely readability & DRY, reused code that can be cleaned up. Additionally, further experience in unit testing code would assist in developing a comprehensive and well rounded testing paradigm.
