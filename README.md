@@ -19,7 +19,7 @@ https://aligenttakehometechnical.onrender.com/
 
 Please refer to input parameters section below if looking to make direct requests.
 
-# Local Hosting/Installation - <a href="https://nodejs.org/en/download/">Node.JS Required</a>
+# Local Hosting/Installation - <a href="https://nodejs.org/en/download/">Node.JS v16.x Required</a>
 
 Clone the repository to your local machine:
 ```
