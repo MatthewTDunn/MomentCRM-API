@@ -15,8 +15,9 @@ This API can be accessed directly via the render host under base URL:
 ```
 https://aligenttakehometechnical.onrender.com/
 ```
+<strong>NOTE: This is hosted on a free tier and may take some time to begin operation when called</strong>
 
-Please refer to use instructions below if so.
+Please refer to input parameters section below if looking to make direct requests.
 
 # Local Hosting/Installation
 
