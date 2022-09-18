@@ -1,11 +1,13 @@
 // establish js libraries
+
 const express = require('express');
 const moment = require('moment-timezone');
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-app.listen(3000, () => {
-    console.log('listening on port 3000')
+app.listen(PORT, () => {
+    console.log('API listening on http://localhost:'+PORT)
 })
 
 // REQUEST 4 - Format conversion table for bool checks & math (conversions against day)
@@ -105,11 +107,24 @@ app.get('/weekdays/:firstDateTime/:secondDateTime', (req,res) => {
 // REQUEST 3 - Number of complete weeks between two dateTime parameters
 app.get('/weeks/:firstDateTime/:secondDateTime', (req,res) => {
     // API route parameters
-    const firstDateTime = moment(req.params.firstDateTime);
-    const secondDateTime = moment(req.params.secondDateTime);
+    let firstDateTime = moment(req.params.firstDateTime);
+    let secondDateTime = moment(req.params.secondDateTime);
     // REQUEST 4 - Determine if API query parameter format is present and handle accordingly
     const returnFormatCheck = new URLSearchParams(req.query).has('format');
     let returnFormat = 'days';
+    // REQUEST 5 - Allow the specification of a timezone for comparison of input parameters from different timezones (against reference UTC+00:00)
+    const tz1Check = new URLSearchParams(req.query).has('tz1');
+    const tz2Check = new URLSearchParams(req.query).has('tz2'); 
+    if (tz1Check === true && moment.tz.names().includes(req.query.tz1)) {
+        const tz1Offset = moment.tz(req.query.tz1).utcOffset();
+        firstDateTime = firstDateTime.add(tz1Offset,'minutes')
+    }
+    if (tz2Check === true && moment.tz.names().includes(req.query.tz2)) {
+        const tz2Offset = moment.tz(req.query.tz2).utcOffset();
+        secondDateTime = secondDateTime.add(tz2Offset,'minutes')
+    }
+    
+    // determine report format and return accordingly
     if (returnFormatCheck == true && req.query.format in formatConversion) {
         returnFormat = req.query.format
         // if format query param exists, change complete weeks to days (*7) & apply conversion from there against formatConversion obj.
@@ -119,7 +134,10 @@ app.get('/weeks/:firstDateTime/:secondDateTime', (req,res) => {
     };
 })
 
-// REQUEST 5 - Send through array of moment valid timezones for user reference
+// Send through array of moment valid timezones for user reference
 app.get('/timezones', (req,res) => {
     res.send(moment.tz.names());
 })
+
+// export for testing
+// export default app
