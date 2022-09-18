@@ -8,11 +8,17 @@ Technical challenge API developed to take two date inputs in <a href="https://en
 
 Additionally, the ability to convert the return response to one of _seconds, minutes, hours & years_ and the specification of timezone comparsion has been included. 
 
-# Installation
+# Direct URL Access
 
-This API can be accessed directly via the AWS host located - 
+This API can be accessed directly via the render host under base URL:
 
-_alternatively it can be cloned and utilised locally by performing the following_:
+```
+https://aligenttakehometechnical.onrender.com/
+```
+
+Please refer to use instructions below if so.
+
+# Local Hosting/Installation
 
 Clone the repository to your local machine:
 ```
@@ -32,7 +38,7 @@ npm install express moment-timezone --save
 
 Run the API locally:
 ```
-node main.js
+npm start
 ```
 
 With the local server listening on port 3000, you can utilise the browser to access the API by navigating to:
