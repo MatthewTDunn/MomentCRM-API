@@ -66,7 +66,7 @@ This API accepts three route parameters in the following order:
   <li>weeks</li>
 </ul>
 
-{firstDateTime} & {secondDateTime} are the datetime input(s) in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a> format. 
+{firstDateTime} & {secondDateTime} are the datetime input(s) in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a> format: <strong>YYYY-MM-DDTHH:MM:SS</strong>
 
 As an example, the following datetimes can be used to calculate the number of days from when I received the technical take home to when I returned it - <strong>returning 10</strong>.
 
@@ -96,9 +96,38 @@ A list of available timezones can be found by hitting the API endpoint <strong>/
 /days/2022-09-08T00:00:00/2022-09-18T00:00:00/?format=minutes&tz1=America/Boise&tz2=Africa/Conakry
 ```
 
+<strong>tz1</strong> represents the timezone to be associated with datetime <strong>input 1</strong> and <strong>tz2</strong> represents the timezone to be associated with datetime <strong>input 2</strong>
+
 # Testing
 
+This repo has 32 in-built tests to validate the operation of the main.js API and can be performed locally (please note, the local installation instructions above must be followed prior to this).
+
+In the <strong>TakeHomeTechnical</strong> directory, install the following developer dependencies:
+
+```
+npm install jest supertest --save-dev
+```
+
+With two terminal windows open, use one to run the API locally:
+
+```
+npm start
+```
+
+On the other run the test script with
+
+```
+npm test
+```
+
+The script will run and process all test work locally and should return 
+
+<img src="https://github.com/Pyr1te/TakeHomeTechnical/blob/main/testImage.JPG">
+
+Further test development can be implemented by populating the <strong>main.test.js</strong> file
 
 # Further Improvements Possibilities
 
 Although effort has been made to ensure the code is commented & as readable as possible, I am relatively inexperienced in having professionally established programmers reviewing my code and understand there is likely readability & DRY, reused code that can be cleaned up. Additionally, further experience in unit testing code would assist in developing a comprehensive and well rounded testing paradigm.
+
+Addtionally, the logic around the processing of weekdays could be improved.
