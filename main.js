@@ -7,10 +7,6 @@ const app = express();
 // utilise web host environment port variable or use port 3000 as fallback
 const PORT = process.env.PORT || 3000;
 
-app.use((req, res) => {
-    res.send('Please refer to the GitHub README (https://github.com/Pyr1te/TakeHomeTechnical) for use instructions')
-})
-
 app.listen(PORT, () => {
     console.log('API listening on http://localhost:'+PORT)
 })
@@ -91,20 +87,21 @@ app.get('/weekdays/:firstDateTime/:secondDateTime', (req,res) => {
     // function to calculate the amount of weekdays between two datetimes 
     function calcWeekday(initial,final) {
         let dateAccumulator = moment(initial);
-        let weekdayCount = 0;
+        // if the start date is a weekday, count that day
+        let weekdayCount = (dateAccumulator.day() == 6 || dateAccumulator.day() == 0) ? 0 : 1;
         // increment weekday count for each day between two dateTime periods (excluding Saturday (6) && Sunday (0))
         while (dateAccumulator < moment(final)) {
-            // increment 1 user requested format number
-            dateAccumulator.add(1,`${returnFormat}`);
+            
             if (dateAccumulator.day() != 6 && dateAccumulator.day() !=0) {
                 // increment count if weekday
                 weekdayCount++
             };
+            dateAccumulator.add(1,`days`);
         };
         return weekdayCount;
     }
 
-    res.status(200).send(calcWeekday(firstDateTime,secondDateTime).toString()); 
+    res.status(200).send(((calcWeekday(firstDateTime,secondDateTime))*(formatConversion[`${returnFormat}`])).toString()); 
 })
 
 
@@ -141,5 +138,5 @@ app.get('/weeks/:firstDateTime/:secondDateTime', (req,res) => {
 
 // Send through array of moment valid timezones for user reference
 app.get('/timezones', (req,res) => {
-    res.send(moment.tz.names());
+    res.send(JSON.stringify(moment.tz.names()));
 })
