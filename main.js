@@ -4,7 +4,12 @@ const express = require('express');
 const moment = require('moment-timezone');
 
 const app = express();
+// utilise web host environment port variable or use port 3000 as fallback
 const PORT = process.env.PORT || 3000;
+
+app.use((req, res) => {
+    res.send('Please refer to the GitHub README (https://github.com/Pyr1te/TakeHomeTechnical) for use instructions')
+})
 
 app.listen(PORT, () => {
     console.log('API listening on http://localhost:'+PORT)
@@ -138,6 +143,3 @@ app.get('/weeks/:firstDateTime/:secondDateTime', (req,res) => {
 app.get('/timezones', (req,res) => {
     res.send(moment.tz.names());
 })
-
-// export for testing
-// export default app
