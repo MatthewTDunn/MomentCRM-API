@@ -18,7 +18,7 @@ git clone https://github.com/MatthewTDunn/MomentCRM-API.git
 
 Navigate to the newly cloned directory
 ```
-cd TakeHomeTechnical
+cd MomentCRM-API
 ```
 
 Install the appropriate libraries/dependencies
