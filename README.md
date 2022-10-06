@@ -1,6 +1,6 @@
-# Microservices Take Home Technical Challenge
+# Microservice API 
 
-Technical challenge API developed to take two date inputs in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a> format and return one of the following based on API endpoint used:
+API to take two date inputs in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a> format and return one of the following based on API endpoint used:
 
 1) The number of _days_ between two datetime parameters
 2) The number of _weekdays_ between two datetime parameters
@@ -8,22 +8,11 @@ Technical challenge API developed to take two date inputs in <a href="https://en
 
 Additionally, the ability to convert the return response to one of _seconds, minutes, hours & years_ and the specification of timezone comparsion has been included. 
 
-# Direct URL Access
-
-This API can be accessed directly via the render host under base URL:
-
-```
-https://aligenttakehometechnical.onrender.com/
-```
-<strong>NOTE: This is hosted on a free tier and may take some time to begin operation when called</strong>
-
-Please refer to input parameters section below if looking to make direct requests.
-
 # Local Hosting/Installation - <a href="https://nodejs.org/en/download/">Node.JS v16.x Required</a>
 
 Clone the repository to your local machine:
 ```
-git clone https://github.com/Pyr1te/TakeHomeTechnical.git
+git clone https://github.com/MatthewTDunn/MomentCRM-API.git
 ```
 > 
 
@@ -34,7 +23,7 @@ cd TakeHomeTechnical
 
 Install the appropriate libraries/dependencies
 ```
-npm install express moment-timezone --save
+npm install
 ```
 
 Run the API locally:
@@ -129,6 +118,5 @@ Further test development can be implemented by populating the <strong>main.test.
 
 # Further Improvements Possibilities
 
-Although effort has been made to ensure the code is commented & as readable as possible, I am relatively inexperienced in having professionally established programmers reviewing my code and understand there is likely readability & DRY, reused code that can be cleaned up. Additionally, further experience in unit testing code would assist in developing a comprehensive and well rounded testing paradigm.
+Loop funtionality & efficency of weekday calculation can be improved.
 
-Addtionally, the logic around the processing of weekdays could be improved.
