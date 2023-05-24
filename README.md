@@ -58,7 +58,7 @@ This API accepts three route parameters in the following order:
 
 {firstDateTime} & {secondDateTime} are the datetime input(s) in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a> format: <strong>YYYY-MM-DDTHH:MM:SS</strong>
 
-As an example, the following datetimes can be used to calculate the number of days from when I received the technical take home to when I returned it - <strong>returning 10</strong>.
+As an example, the following datetimes can be used to calculate the number of days between two points - <strong>returning 10</strong>.
 
 ```
 /days/2022-09-08T00:00:00/2022-09-18T00:00:00/
@@ -92,7 +92,7 @@ A list of available timezones can be found by hitting the API endpoint <strong>/
 
 This repo has 32 in-built tests to validate the operation of the main.js API and can be performed locally (please note, the local installation instructions above must be followed prior to this).
 
-In the <strong>TakeHomeTechnical</strong> directory, install the following developer dependencies:
+In the code directory, install the following developer dependencies:
 
 ```
 npm install jest supertest --save-dev
